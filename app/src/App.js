@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import connect from 'react-redux';
 
 function App() {
   return (
@@ -10,4 +10,12 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    film: state.film,
+    isFetching: state.isFetching,
+    error: state.error
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
